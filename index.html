@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuranApp - Bientôt sur Samsung TV</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a; /* Fond noir/anthracite premium */
+            color: #ffffff;
+            overflow-x: hidden;
+            margin: 0;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .samsung-highlight {
+            color: #ffffff;
+            font-weight: 800;
+            letter-spacing: 0.02em;
+        }
+        .animate-float {
+            animation: float 5s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        /* Style spécifique pour le logo en rond */
+        .logo-circle {
+            width: 140px;
+            height: 140px;
+            background-color: #0056b3; /* Le bleu uniquement pour le logo */
+            border-radius: 50%;
+            display: flex;
+            items-center: center;
+            justify-content: center;
+            box-shadow: 0 0 40px rgba(0, 86, 179, 0.3);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center">
+
+    <main class="max-w-5xl w-full flex-grow flex flex-col items-center justify-center px-6 py-20 text-center">
+        
+        <!-- Logo en rond -->
+        <div class="animate-float mb-12">
+            <div class="logo-circle mx-auto flex items-center justify-center">
+                <svg viewBox="0 0 24 24" class="w-20 h-20 text-white" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                </svg>
+            </div>
+        </div>
+
+        <!-- Titre Application -->
+        <h1 class="text-5xl md:text-7xl font-bold mb-4 tracking-tight">QuranApp</h1>
+        <p class="text-xl md:text-2xl text-zinc-500 uppercase tracking-[0.4em] font-light mb-16">
+            Coming Soon
+        </p>
+
+        <!-- Annonce Samsung -->
+        <div class="mb-24">
+            <h2 class="text-3xl md:text-5xl font-extralight leading-tight">
+                Bientôt disponible sur les téléviseurs <br class="hidden md:block"/>
+                <span class="samsung-highlight">SAMSUNG</span>
+            </h2>
+            <div class="h-1 w-20 bg-zinc-800 mx-auto mt-8"></div>
+        </div>
+
+        <!-- Section Remerciements Massive -->
+        <section class="w-full glass-card rounded-[3rem] p-12 md:p-20 shadow-2xl border-t border-white/5">
+            <div class="max-w-3xl mx-auto space-y-10">
+                <span class="text-zinc-500 text-sm font-bold tracking-widest uppercase italic">Note Officielle</span>
+                <p class="text-3xl md:text-5xl font-light leading-snug italic text-zinc-200">
+                    « Nous tenons à exprimer notre plus profonde reconnaissance envers <span class="text-white font-bold">SAMSUNG</span> pour leur collaboration exceptionnelle. »
+                </p>
+                <div class="pt-6">
+                    <p class="text-zinc-500 text-lg md:text-xl">
+                        Grâce à ce partenariat, l'excellence spirituelle rencontre l'excellence technologique.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full py-10 text-center text-zinc-600 text-xs tracking-widest uppercase">
+        &copy; 2026 QuranApp &bull; Partenaire Officiel Samsung
+    </footer>
+
+</body>
+</html>
+
