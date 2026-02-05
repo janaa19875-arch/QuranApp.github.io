@@ -2,170 +2,190 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>QuranApp - Bientôt sur Samsung TV</title>
     <style>
-        /* CSS ULTRA-COMPATIBLE - OPTIMISÉ POUR TOUS NAVIGATEURS TV SAMSUNG (TIZEN & ORSAY) */
+        /* CSS UNIFIÉ - COMPATIBLE MOBILE ET TV */
         
-        html, body {
+        body, html {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
-            background-color: #000000; /* Noir pur pour les dalles Samsung */
+            background-color: #000000;
             color: #ffffff;
-            font-family: Arial, Helvetica, sans-serif; 
-            overflow: hidden;
-            display: block;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            overflow-x: hidden;
         }
 
-        /* Utilisation de la méthode Table pour un centrage vertical garanti sans bug */
-        .wrapper {
+        /* Centrage universel */
+        .page-wrapper {
             display: table;
             width: 100%;
             height: 100%;
+            min-height: 100vh;
         }
 
-        .container {
+        .content-cell {
             display: table-cell;
             vertical-align: middle;
             text-align: center;
-            padding: 20px;
+            padding: 40px 20px;
         }
 
-        /* Logo circulaire bleu - Compatible vieux moteurs de rendu */
-        .logo-circle {
-            width: 160px;
-            height: 160px;
+        /* Logo Circulaire Bleu */
+        .logo-main {
+            width: 180px;
+            height: 180px;
             background-color: #0056b3;
-            -webkit-border-radius: 80px; /* Préfixe pour vieilles TV */
-            border-radius: 80px;
+            border-radius: 50%;
+            -webkit-border-radius: 90px;
             margin: 0 auto 30px auto;
-            display: block; /* Sécurité si flex échoue */
-            line-height: 160px; /* Centrage vertical pour vieux moteurs */
-            box-shadow: 0 5px 20px rgba(0, 86, 179, 0.6);
-            -webkit-box-shadow: 0 5px 20px rgba(0, 86, 179, 0.6);
+            box-shadow: 0 10px 30px rgba(0, 86, 179, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse 4s ease-in-out infinite;
+            -webkit-animation: pulse 4s ease-in-out infinite;
         }
 
         .logo-svg {
-            width: 90px;
-            height: 90px;
-            vertical-align: middle; /* Aligne l'icône dans le cercle */
-            display: inline-block;
+            width: 100px;
+            height: 100px;
         }
 
         h1 {
             font-size: 80px;
-            font-weight: bold;
             margin: 0;
-            color: #ffffff;
+            font-weight: bold;
+            letter-spacing: -2px;
         }
 
-        .status {
+        .status-label {
             font-size: 24px;
-            color: #cccccc;
+            color: #888888;
             text-transform: uppercase;
             letter-spacing: 10px;
             margin: 10px 0 40px 0;
         }
 
-        .info-text {
+        .announcement {
             font-size: 40px;
             margin-bottom: 50px;
-            font-weight: normal;
+            font-weight: 300;
         }
 
-        .samsung-name {
-            font-weight: bold;
-            text-decoration: underline;
+        .samsung-brand {
+            font-weight: 800;
+            border-bottom: 4px solid #0056b3;
+            padding-bottom: 5px;
+            white-space: nowrap;
         }
 
-        /* Section Remerciement - Design robuste sans effets de flou (souvent buggés sur TV) */
-        .thanks-section {
+        /* Box de remerciements */
+        .thanks-box {
             background-color: #111111;
-            border: 2px solid #222222;
-            -webkit-border-radius: 30px;
+            border: 1px solid #222222;
             border-radius: 30px;
             padding: 50px 30px;
-            width: 85%;
-            max-width: 1000px;
+            width: 90%;
+            max-width: 900px;
             margin: 0 auto;
         }
 
-        .thanks-quote {
-            font-size: 48px;
+        .thanks-msg {
+            font-size: 40px;
             line-height: 1.3;
             font-style: italic;
+            margin: 0;
         }
 
-        .thanks-quote b {
-            color: #ffffff;
+        .thanks-msg b {
             font-weight: bold;
         }
 
-        .badge {
+        .official-badge {
             margin-top: 30px;
-            padding: 8px 20px;
-            border: 1px solid #333333;
             font-size: 16px;
-            color: #777777;
+            color: #555555;
             text-transform: uppercase;
-            letter-spacing: 4px;
-            display: inline-block;
+            letter-spacing: 5px;
         }
 
-        /* Animation simple et fluide (Pulse) compatible Tizen */
-        @-webkit-keyframes pulse {
-            0% { -webkit-transform: scale(1); transform: scale(1); }
-            50% { -webkit-transform: scale(1.03); transform: scale(1.03); }
-            100% { -webkit-transform: scale(1); transform: scale(1); }
-        }
+        /* ANIMATIONS */
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.03); }
-            100% { transform: scale(1); }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        @-webkit-keyframes pulse {
+            0%, 100% { -webkit-transform: scale(1); }
+            50% { -webkit-transform: scale(1.05); }
         }
 
-        .logo-circle {
-            -webkit-animation: pulse 4s ease-in-out infinite;
-            animation: pulse 4s ease-in-out infinite;
+        /* --- ADAPTATION MOBILE (Écrans verticaux) --- */
+        @media screen and (max-width: 600px) {
+            .content-cell {
+                padding: 60px 15px;
+            }
+            .logo-main {
+                width: 120px;
+                height: 120px;
+            }
+            .logo-svg {
+                width: 70px;
+                height: 70px;
+            }
+            h1 {
+                font-size: 50px;
+            }
+            .status-label {
+                font-size: 14px;
+                letter-spacing: 5px;
+            }
+            .announcement {
+                font-size: 28px;
+            }
+            .thanks-box {
+                padding: 30px 20px;
+            }
+            .thanks-msg {
+                font-size: 26px;
+            }
         }
 
-        /* Media queries simplifiées pour les résolutions TV (HD / Full HD / 4K) */
-        @media (max-width: 1280px) {
-            h1 { font-size: 60px; }
-            .info-text { font-size: 32px; }
-            .thanks-quote { font-size: 36px; }
-            .logo-circle { width: 130px; height: 130px; line-height: 130px; }
-            .logo-svg { width: 70px; height: 70px; }
+        /* --- ADAPTATION TABLETTE / PETITE TV --- */
+        @media screen and (min-width: 601px) and (max-width: 1280px) {
+            h1 { font-size: 70px; }
+            .announcement { font-size: 34px; }
+            .thanks-msg { font-size: 34px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="wrapper">
-        <div class="container">
-            
-            <!-- Logo circulaire bleu avec icône livre -->
-            <div class="logo-circle">
-                <svg class="logo-svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+    <div class="page-wrapper">
+        <div class="content-cell">
+
+            <!-- Logo -->
+            <div class="logo-main">
+                <svg class="logo-svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
                 </svg>
             </div>
 
             <h1>QuranApp</h1>
-            <div class="status">Bientôt disponible</div>
+            <div class="status-label">Bientôt disponible</div>
 
-            <div class="info-text">
-                Sur vos téléviseurs <span class="samsung-name">SAMSUNG</span>
+            <div class="announcement">
+                Sur vos téléviseurs <span class="samsung-brand">SAMSUNG</span>
             </div>
 
-            <!-- Message de remerciement -->
-            <div class="thanks-section">
-                <div class="thanks-quote">
+            <!-- Bloc Remerciements -->
+            <div class="thanks-box">
+                <p class="thanks-msg">
                     « Nous remercions chaleureusement <b>SAMSUNG</b> pour leur précieuse collaboration. »
-                </div>
-                <div class="badge">Partenariat Officiel</div>
+                </p>
+                <div class="official-badge">Partenariat Officiel</div>
             </div>
 
         </div>
